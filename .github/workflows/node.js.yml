@@ -12,7 +12,7 @@ jobs:
         run: |
           npm install
           npm run build
-      - uses: actions/upload-artifact@main
+      - uses: actions/upload-artifact@v3.1.0
         with:
           name: webpack artifacts
           path: public/
@@ -31,8 +31,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: download artifacts
-      uses: actions/download-artifacts@main
+    
+    - name: Download a Build Artifact
+      uses: actions/download-artifact@v3.0.0
       with:
         name: webpack artifacts
         path: public/
